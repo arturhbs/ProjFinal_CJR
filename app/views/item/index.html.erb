@@ -1,0 +1,30 @@
+<html>
+<body>
+
+
+	<h1 align="center">ITEM</h1><br/>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Nome</th>
+				<th>Descrição</th>
+				<th>Preço(em R$)</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @itens.each do |itens| %>
+
+				<tr>
+					<td><%= itens.nome%></td>
+					<td><%= itens.descricao%></td>
+					<td><%= itens.preco%></td>
+				</tr>
+			<%end%>	
+		</tbody>
+	</table>
+
+	<%= link_to "ADD item" , new_item_path , class:"btn btn-primary btn-xs" %>
+	<%= link_to "ADD categoria" , categories_path , class:"btn btn-primary btn-xs" %>
+
+</body>
+</html>

@@ -1,0 +1,20 @@
+<body>
+
+	<h1 align="center">CATEGORIAS</h1><br/>
+	<table class="table">
+		<thead>
+			<tr>
+				<th>Nome</th>
+			</tr>
+		</thead>
+		<tbody>
+			<% @categorias.each do |categorias| %>
+				<tr>
+					<td><%= categorias.nome%></td>
+				</tr>
+			<%end%>	
+		</tbody>
+	</table>
+
+	<%= link_to "ADD" , new_category_path , class:"btn btn-primary" %>
+</body>

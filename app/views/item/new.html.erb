@@ -1,0 +1,20 @@
+<html>
+<body>
+ <%= form_for @item , url: item_index_path do |f| %>
+
+	Nome
+	<%= f.text_field :nome %><br/>    
+
+	Descrição
+	<%= f.text_area :descricao %><br/>    
+
+	Preço
+	<%= f.number_field :preco, step: 0.01, min: 0 %><br/>    
+
+	<%= f.submit %>    
+<%end%>
+
+	<%= link_to" back", item_index_path, class:"btn btn-primary btn-xs" %>
+
+</body>
+</html>

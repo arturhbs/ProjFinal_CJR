@@ -1,0 +1,15 @@
+<html>
+<body>
+ <%= form_for @categoria , url: categories_path do |f| %>
+
+	Nome
+	<%= f.text_field :nome %><br/>    
+
+
+	<%= f.submit %>    
+<%end%>
+
+	<%= link_to" back", categories_path, class:"btn btn-primary btn-xs" %>
+
+</body>
+</html>
