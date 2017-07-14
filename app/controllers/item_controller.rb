@@ -16,12 +16,16 @@ class ItemController < ApplicationController
 	def create
 	   @item =  Item.new(items_params)
 	   if @item.save
+	   	flash[:notice]= "Item feito com sucesso"
 	   	redirect_to root_path
 	   else
 	   	render 'new'	
 	   end
 
 	end	
+
+	def busca
+	end
 
 	def destroy
 
@@ -37,7 +41,7 @@ class ItemController < ApplicationController
 	private 
 
 	def items_params
-		params.require(:item).permit(:nome, :descricao, :preco)
+		params.require(:item).permit(:nome, :descricao,:preco, category_ids:[] )
 	end
 
 end

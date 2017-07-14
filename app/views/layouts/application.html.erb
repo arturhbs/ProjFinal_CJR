@@ -9,6 +9,46 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= nav_bar brand: "DinnerDash", brand_link: root_path  do  %>
+    	<% form_tag busca_item_path, method: :get, class: "navbar-form navbar-right" do %>
+          <div class="form-group">
+            <%=  text_field_tag :nome, nil, class: "form-control"   %>
+            <%= button_to "Buscar", nil, class: "btn btn-defaut" %>
+          </div>
+      <% end %>    
+   <!-- render 'layouts/header' obs: n estava conseguindo funcionar--> 
+          <div class="form-group">
+          <nav>
+            <ul>
+              <% if logged_in? %>
+                <li><%= link_to "Users", users_path %></li>
+                <li>
+                  <ul>
+                    <li><%= link_to "Profile", current_user %></li>
+                    <li><%= link_to "Settings", '#' %></li>
+                    <li>
+                      <%= link_to "Log out", sign_out_path, method: "delete" %>
+                    </li>
+                  </ul>
+                </li>
+              <% else %>
+                <div class="navbar-form navbar-right"  >
+               
+                  <%= link_to "Log in", sign_in_path, class:"btn btn-success" %></div>
+      
+
+              <% end %>
+            </ul>
+          </nav>
+        </div>
+    
+  
+    <% end %> 
+
+    <div class="container">
+
+      <%= yield %>
+  		
+  	</div>
   </body>
 </html>

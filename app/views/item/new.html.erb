@@ -1,20 +1,31 @@
-<html>
-<body>
+	
+<% @item.errors.full_messages.each do |message| %>
+	<div class="alert alert-danger" role="alert">
+		<% message %>	
+	</div>
+<% end %>
+
+
  <%= form_for @item , url: item_index_path do |f| %>
 
 	Nome
 	<%= f.text_field :nome %><br/>    
 
 	Descrição
-	<%= f.text_area :descricao %><br/>    
+	<%= f.text_area :descricao %><br/>   
+
+	Categoria
+	<div>
+		<%= f.collection_check_boxes(:category_ids, Category.all, :id, :nome) do |category| %>
+  			<%= category.label { category.check_box } + category.text %>
+		<% end %>
+	</div> 
 
 	Preço
 	<%= f.number_field :preco, step: 0.01, min: 0 %><br/>    
-
+		
 	<%= f.submit %>    
 <%end%>
 
 	<%= link_to" back", item_index_path, class:"btn btn-primary btn-xs" %>
 
-</body>
-</html>
